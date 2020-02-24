@@ -7,7 +7,24 @@ body {
 }
 
 .marker {
+  stroke: darkgreen;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+}
+
+.marker path {
+  fill: darkgreen;
+}
+
+.marker.temporary {
   stroke: red;
-  height: 24px;
-  width: 24px;
+}
+
+.marker.temporary path {
+  fill: red;
+}
+
+.popup {
+  max-width: 300px;
 }
