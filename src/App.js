@@ -4,7 +4,7 @@ import ReactMapGL from 'react-map-gl';
 import TemporaryMapMarker from './components/TemporaryMapMarker';
 import MapMarker from './components/MapMarker';
 
-import { listLogEntries } from './api';
+import { listLogEntries } from './services/api';
 
 const App = () => {
   const [viewport, setViewport] = useState({
