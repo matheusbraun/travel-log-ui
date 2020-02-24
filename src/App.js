@@ -27,6 +27,22 @@ const App = () => {
     })();
   }, []);
 
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+
+        setViewport(viewport => ({ ...viewport, latitude, longitude }));
+      },
+      err => {
+        console.log(err);
+      },
+      {
+        timeout: 30000,
+      },
+    );
+  }, []);
+
   const showAddMarkerPopup = pointerEvent => {
     const [longitude, latitude] = pointerEvent.lngLat;
 
