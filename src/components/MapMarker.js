@@ -7,6 +7,7 @@ const MapMarker = ({
   longitude,
   title,
   comments,
+  image,
   visitDate,
   showPopup,
   setShowPopup,
@@ -49,6 +50,7 @@ const MapMarker = ({
           <div className="popup">
             <h3>{title}</h3>
             <p>{comments}</p>
+            {image && <img src={image} alt={title} />}
             <small>
               Visited on: {new Date(visitDate).toLocaleDateString()}
             </small>
