@@ -17,8 +17,8 @@ const LogEntryForm = ({ latitude, longitude, onSubmitCallback }) => {
       if (onSubmitCallback) onSubmitCallback(response);
     } catch (err) {
       setError(err.message);
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   return (
