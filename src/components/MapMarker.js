@@ -36,7 +36,7 @@ const MapMarker = ({
           </svg>
         </div>
       </Marker>
-      {showPopup[_id] ? (
+      {showPopup[_id] && (
         <Popup
           latitude={latitude}
           longitude={longitude}
@@ -54,7 +54,7 @@ const MapMarker = ({
             </small>
           </div>
         </Popup>
-      ) : null}
+      )}
     </>
   );
 };

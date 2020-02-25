@@ -23,7 +23,7 @@ const LogEntryForm = ({ latitude, longitude, onSubmitCallback }) => {
 
   return (
     <form className="log-entry-form" onSubmit={handleSubmit(onSubmit)}>
-      {error ? <h4>{error}</h4> : null}
+      {error && <h4>{error}</h4>}
       <label htmlFor="title">Título</label>
       <input name="title" required ref={register} disabled={loading} />
       <label htmlFor="description">Descrição</label>

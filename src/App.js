@@ -90,13 +90,13 @@ const App = () => {
             {...logEntry}
           />
         ))}
-        {addEntryLocation ? (
+        {addEntryLocation && (
           <TemporaryMapMarker
             {...addEntryLocation}
             onCloseCallback={() => setAddEntryLocation(null)}
             onSubmitCallback={response => onCreateCallback(response)}
           />
-        ) : null}
+        )}
       </ReactMapGL>
     </div>
   );
