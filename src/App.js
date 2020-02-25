@@ -43,6 +43,22 @@ const App = () => {
     );
   }, []);
 
+  useEffect(() => {
+    const setNewViewportSize = () => {
+      setViewport(viewport => ({
+        ...viewport,
+        width: `${window.innerWidth}px`,
+        height: `${window.innerHeight}px`,
+      }));
+    };
+
+    window.addEventListener('resize', setNewViewportSize);
+
+    return function cleanup() {
+      window.removeEventListener('resize', setNewViewportSize);
+    };
+  }, []);
+
   const showAddMarkerPopup = pointerEvent => {
     const [longitude, latitude] = pointerEvent.lngLat;
 
@@ -53,28 +69,30 @@ const App = () => {
   };
 
   return (
-    <ReactMapGL
-      {...viewport}
-      mapStyle="mapbox://styles/mapbox/navigation-guidance-day-v4"
-      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-      onViewportChange={setViewport}
-      onDblClick={pointerEvent => showAddMarkerPopup(pointerEvent)}
-    >
-      {logEntries.map(logEntry => (
-        <MapMarker
-          key={logEntry._id}
-          showPopup={showPopup}
-          setShowPopup={setShowPopup}
-          {...logEntry}
-        />
-      ))}
-      {addEntryLocation ? (
-        <TemporaryMapMarker
-          {...addEntryLocation}
-          onCloseCallback={() => setAddEntryLocation(null)}
-        />
-      ) : null}
-    </ReactMapGL>
+    <div className="div-container">
+      <ReactMapGL
+        {...viewport}
+        mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        onViewportChange={setViewport}
+        onDblClick={pointerEvent => showAddMarkerPopup(pointerEvent)}
+      >
+        {logEntries.map(logEntry => (
+          <MapMarker
+            key={logEntry._id}
+            showPopup={showPopup}
+            setShowPopup={setShowPopup}
+            {...logEntry}
+          />
+        ))}
+        {addEntryLocation ? (
+          <TemporaryMapMarker
+            {...addEntryLocation}
+            onCloseCallback={() => setAddEntryLocation(null)}
+          />
+        ) : null}
+      </ReactMapGL>
+    </div>
   );
 };
 
