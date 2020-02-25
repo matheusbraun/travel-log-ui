@@ -12,7 +12,6 @@ const LogEntryForm = ({ latitude, longitude, onSubmitCallback }) => {
   const onSubmit = async data => {
     setLoading(true);
     try {
-      console.log({ ...data, latitude, longitude });
       const response = await createLogEntry({ ...data, latitude, longitude });
 
       if (onSubmitCallback) onSubmitCallback(response);
