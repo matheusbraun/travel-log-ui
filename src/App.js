@@ -68,6 +68,11 @@ const App = () => {
     });
   };
 
+  const onCreateCallback = response => {
+    setLogEntries([...logEntries, response]);
+    setAddEntryLocation(null);
+  };
+
   return (
     <div className="div-container">
       <ReactMapGL
@@ -89,6 +94,7 @@ const App = () => {
           <TemporaryMapMarker
             {...addEntryLocation}
             onCloseCallback={() => setAddEntryLocation(null)}
+            onSubmitCallback={response => onCreateCallback(response)}
           />
         ) : null}
       </ReactMapGL>

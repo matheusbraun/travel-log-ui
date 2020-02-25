@@ -1,7 +1,14 @@
 import React from 'react';
 import { Marker, Popup } from 'react-map-gl';
 
-const TemporaryMapMarker = ({ latitude, longitude, onCloseCallback }) => (
+import LogEntryForm from './LogEntryForm';
+
+const TemporaryMapMarker = ({
+  latitude,
+  longitude,
+  onCloseCallback,
+  onSubmitCallback,
+}) => (
   <>
     <Marker
       latitude={latitude}
@@ -29,7 +36,13 @@ const TemporaryMapMarker = ({ latitude, longitude, onCloseCallback }) => (
       anchor="top"
       dynamicPosition={true}
     >
-      <h3>Add your new Log Entry</h3>
+      <div className="popup">
+        <LogEntryForm
+          latitude={latitude}
+          longitude={longitude}
+          onSubmitCallback={onSubmitCallback}
+        />
+      </div>
     </Popup>
   </>
 );

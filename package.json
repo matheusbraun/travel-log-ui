@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-hook-form": "^4.9.8",
     "react-map-gl": "^5.2.3",
     "react-scripts": "3.4.0"
   },

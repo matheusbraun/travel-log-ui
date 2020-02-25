@@ -9,3 +9,9 @@ export async function listLogEntries() {
 
   return response.data;
 }
+
+export async function createLogEntry(data) {
+  const response = await api.post('/logs', data);
+
+  return response.data;
+}

@@ -26,5 +26,17 @@ body {
 }
 
 .popup {
-  max-width: 300px;
+  width: 25vw;
+  padding: 1rem;
+}
+
+.log-entry-form > * {
+  margin: 0.5rem 0;
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.log-entry-form h4 {
+  color: red;
 }
